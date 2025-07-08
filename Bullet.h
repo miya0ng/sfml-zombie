@@ -1,24 +1,14 @@
 #pragma once
 #include "GameObject.h"
-
-class SceneGame;
-
-class Player : public GameObject
+class Bullet :
+    public GameObject
 {
 protected:
 	sf::Sprite body;
-	std::string texId = "graphics/player.png";
-
-	sf::Vector2f direction;
-	sf::Vector2f look;
-
-	float speed = 500.f;
-
-	SceneGame* sceneGame = nullptr;
 
 public:
-	Player(const std::string& name = "");
-	~Player() override = default;
+	Bullet(const std::string& name = "");
+	virtual ~Bullet() = default;
 
 	void SetPosition(const sf::Vector2f& pos) override;
 	void SetRotation(float rot) override;
@@ -41,6 +31,5 @@ public:
 	{
 		return body.getGlobalBounds;
 	}
-
 };
 
